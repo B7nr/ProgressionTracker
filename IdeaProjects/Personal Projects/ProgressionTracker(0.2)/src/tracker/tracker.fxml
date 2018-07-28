@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.collections.FXCollections?>
+<?import java.lang.String?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ScrollBar?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.ComboBox?>
+<TabPane fx:id="tabPane" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tracker.Controller">
+    <Tab fx:id="bTab" text="Builder" closable="false">
+        <ScrollPane fx:id="scrollPane" >
+            <GridPane fx:id="gridPaneBuilder" alignment="TOP_LEFT" hgap="10" styleClass="root" vgap="10" >
+                <padding><Insets bottom="10" left="5" right="5" top="10" /></padding>
+                <gridLinesVisible>false</gridLinesVisible>
+                <!--<HBox fx:id="setHBox" spacing="10" alignment="BOTTOM_LEFT"-->
+                <!--GridPane.columnIndex="1" GridPane.rowIndex="2" >-->
+                <!--<Button fx:id="sButton0" text="New Set" onAction="#createSet"/>-->
+                <!--</HBox>-->
+                <HBox fx:id="saveHBox" spacing="10" alignment="BOTTOM_LEFT"
+                      GridPane.columnIndex="6" GridPane.rowIndex="1">
+                    <Button fx:id="saveButton" text="Save" onAction="#saveWorkout"/>
+                </HBox>
+                <TextField fx:id="eField00" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+                <Label fx:id="eLabel00" text="Exercise: " GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                <ChoiceBox fx:id="tBox00" GridPane.columnIndex="4" GridPane.rowIndex="3" onAction="#finishRow">
+                    <items>
+                        <FXCollections fx:factory="observableArrayList">
+                            <String fx:value="Interval" />
+                            <String fx:value="Threshold" />
+                        </FXCollections>
+                    </items>
+                </ChoiceBox>
+                <Label fx:id="tLabel00" text="Type: " GridPane.columnIndex="4" GridPane.rowIndex="2" />
+            </GridPane>
+        </ScrollPane>
+    </Tab>
+    <Tab fx:id="cTab" text="Charts" closable="false">
+
+    </Tab>
+    <Tab fx:id="eTab" text="Edit" closable="false">
+        <GridPane fx:id="gridPaneEditer" alignment="TOP_LEFT" hgap="10" styleClass="root" vgap="10" >
+            <padding><Insets bottom="10" left="5" right="5" top="10" /></padding>
+            <gridLinesVisible>false</gridLinesVisible>
+            <Label text="Choose The Workout" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+            <ComboBox fx:id="exListBox" GridPane.columnIndex="1" GridPane.rowIndex="2" onAction="#selectWorkout">
+                <items>
+                    <FXCollections fx:factory="observableArrayList" />
+                </items>
+            </ComboBox>
+        </GridPane>
+    </Tab>
+</TabPane>
+
+
